@@ -4,8 +4,6 @@
 #include <cstdint>
 #include <cstdio>
 #include <random>
-#include <thread>
-#include <vector>
 
 #define inv_sqrt_2xPI 0.39894228040143270286
 #define p_val 0.2316419
@@ -118,7 +116,8 @@ void naive_BlkSchls(std::vector<float> &CallOptionPrice,
     }
 }
 
-static constexpr float kLn2    = 0.69314718056f;
+
+static constexpr float kLn2   = 0.69314718056f;
 static constexpr float kInvLn2 = 1.44269504089f;
 
 __attribute__((always_inline))
@@ -133,6 +132,7 @@ static inline float fast_exp_neg(float x) {
     v.u = static_cast<std::uint32_t>(n + 127) << 23;
     return p * v.f;
 }
+
 
 static const float sLogC0 = -19.645704f;
 static const float sLogC1 = 0.767002f;
@@ -154,8 +154,9 @@ static inline float fast_log(float x) {
     return (static_cast<float>(e) + sLogC4 + a / b) * sLog2;
 }
 
+
 __attribute__((always_inline))
-static inline float stu_cndf_fast(float x) {
+static inline float fast_cndf(float x) {
     const bool neg = (x < 0.0f);
     x = std::abs(x);
     const float k = 1.0f / (1.0f + static_cast<float>(p_val) * x);
@@ -170,25 +171,21 @@ static inline float stu_cndf_fast(float x) {
 }
 
 __attribute__((always_inline))
-static inline void stu_BlkSchls_one(float &CallOptionPrice,
-                                    float &PutOptionPrice, float spotPrice,
-                                    float strike, float rate,
-                                    float volatility, float time) {
-    const float xSqrtTime    = sqrtf(time);
-    const float xLogTerm     = fast_log(spotPrice / strike);
-    const float xPowerTerm   = 0.5f * volatility * volatility;
-    const float xDen         = volatility * xSqrtTime;
-    const float invDen       = 1.0f / xDen;
-
-    const float xD1 = ((rate + xPowerTerm) * time + xLogTerm) * invDen;
-    const float xD2 = xD1 - xDen;
-
-    const float NofXd1 = stu_cndf_fast(xD1);
-    const float NofXd2 = stu_cndf_fast(xD2);
-
-    const float FutureValueX = strike * fast_exp_neg(-rate * time);
-    CallOptionPrice = (spotPrice * NofXd1) - (FutureValueX * NofXd2);
-    PutOptionPrice  = (FutureValueX * (1.0f - NofXd2)) - (spotPrice * (1.0f - NofXd1));
+static inline void stu_BlkSchls_one(float &call, float &put,
+                                    float spot, float strike,
+                                    float rate, float vol, float t) {
+    const float sqrtT  = std::sqrt(t);
+    const float logVal = fast_log(spot / strike);
+    const float halfV2 = 0.5f * vol * vol;
+    const float den    = vol * sqrtT;
+    const float invDen = 1.0f / den;
+    const float d1     = ((rate + halfV2) * t + logVal) * invDen;
+    const float d2     = d1 - den;
+    const float Nd1    = fast_cndf(d1);
+    const float Nd2    = fast_cndf(d2);
+    const float disc   = strike * fast_exp_neg(-rate * t);
+    call = spot * Nd1 - disc * Nd2;
+    put  = disc * (1.0f - Nd2) - spot * (1.0f - Nd1);
 }
 
 void stu_BlkSchls(std::vector<float> &CallOptionPrice,
@@ -199,44 +196,17 @@ void stu_BlkSchls(std::vector<float> &CallOptionPrice,
                   const std::vector<float> &volatility,
                   const std::vector<float> &time) {
     const size_t n = spotPrice.size();
+    float* __restrict__ call = CallOptionPrice.data();
+    float* __restrict__ put  = PutOptionPrice.data();
+    const float* __restrict__ s = spotPrice.data();
+    const float* __restrict__ k = strike.data();
+    const float* __restrict__ r = rate.data();
+    const float* __restrict__ v = volatility.data();
+    const float* __restrict__ t = time.data();
 
-    const unsigned int hw = std::thread::hardware_concurrency();
-    const size_t num_threads = (hw == 0) ? 4u : static_cast<size_t>(hw);
-    constexpr size_t MIN_WORK = 512;
-
-    if (n < MIN_WORK || num_threads <= 1) {
-        for (size_t i = 0; i < n; ++i) {
-            stu_BlkSchls_one(CallOptionPrice[i], PutOptionPrice[i],
-                             spotPrice[i], strike[i], rate[i],
-                             volatility[i], time[i]);
-        }
-        return;
+    for (size_t i = 0; i < n; ++i) {
+        stu_BlkSchls_one(call[i], put[i], s[i], k[i], r[i], v[i], t[i]);
     }
-
-    auto worker = [&](size_t begin, size_t end) {
-        for (size_t i = begin; i < end; ++i) {
-            stu_BlkSchls_one(CallOptionPrice[i], PutOptionPrice[i],
-                             spotPrice[i], strike[i], rate[i],
-                             volatility[i], time[i]);
-        }
-    };
-
-    std::vector<std::thread> threads;
-    threads.reserve(num_threads - 1);
-    const size_t chunk = (n + num_threads - 1) / num_threads;
-
-    for (size_t t = 0; t < num_threads; ++t) {
-        const size_t begin = t * chunk;
-        const size_t end   = std::min(n, begin + chunk);
-        if (begin >= end) break;
-        if (t == num_threads - 1) {
-            worker(begin, end);
-        } else {
-            threads.emplace_back(worker, begin, end);
-        }
-    }
-
-    for (auto &th : threads) th.join();
 }
 
 void naive_BlkSchls_wrapper(void *ctx) {

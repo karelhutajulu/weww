@@ -1,5 +1,5 @@
-CMakeFiles/single_bench.dir/src/main/single_bench.cpp.o: \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/src/main/single_bench.cpp \
+CMakeFiles/run_all.dir/src/main/run_all.cpp.o: \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/main/run_all.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/chrono \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -704,12 +704,21 @@ CMakeFiles/single_bench.dir/src/main/single_bench.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/pmr.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/erase.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__vector/vector_bool_formatter.h \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/include/bench.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/bench.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/utility \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/rel_ops.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/as_const.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/cmp.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__utility/forward_like.h \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/include/relu.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/bitwise.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/span \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/span.h
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/span.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/blackscholes.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/filter_gradient.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/graph.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/grff.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/image_proc.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/matmul.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/relu.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/sparse_spmm.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/trace_replay.h

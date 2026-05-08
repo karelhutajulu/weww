@@ -1,7 +1,7 @@
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/src/kernel/filter_gradient.cpp \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/include/filter_gradient.h \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/include/bench.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/bonus/src/kernel/filter_gradient.cpp \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/bonus/include/filter_gradient.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/bonus/include/bench.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \

@@ -17,6 +17,7 @@ struct CSRMatrix {
 };
 
 const std::chrono::nanoseconds BASELINE_SPARSE_SPMM{116000000};
+inline constexpr double NAIVE_SPEEDUP_LOWER_BOUND_SPARSE_SPMM{1.40};
 
 struct sparse_spmm_args {
     std::vector<float> out;
@@ -26,11 +27,13 @@ struct sparse_spmm_args {
     // TODO: You may want to add new params at the end...
 };
 
-void initialize_spmm(
-    sparse_spmm_args &args, int block_row_count = 512,
-    int block_col_count = 512, int dense_cols = -1,
-    const std::vector<int> &diagonal_offsets = std::vector<int>{},
-    unsigned int seed = 12345u);
+void initialize_spmm(sparse_spmm_args &args,
+                     int block_row_count = 512,
+                     int block_col_count = 512,
+                     int dense_cols = -1,
+                     const std::vector<int> &diagonal_offsets =
+                         std::vector<int>{},
+                     unsigned int seed = 12345u);
 
 // Check the data's validity in CSR format
 inline bool validate_csr(const CSRMatrix &csr) {
@@ -94,8 +97,7 @@ void csr_spmm(const CSRMatrix &csr, const std::vector<float> &dense_t,
 
 void naive_sparse_spmm_wrapper(void *ctx);
 
-// TODO: Implement your version (e.g. stu_csr_spmm), and call it in
-// stu_sparse_spmm_wrapper
+// TODO: Implement your version (e.g. stu_csr_spmm), and call it in stu_sparse_spmm_wrapper
 void stu_sparse_spmm_wrapper(void *ctx);
 
 bool sparse_spmm_check(void *stu_ctx, void *ref_ctx, lab_test_func naive_func);

@@ -1,0 +1,29 @@
+Benchmark setup
+
+Running Benchmarks...
+------------------------------------------------------------------------------------------------
+Benchmark                Status              Naive (ns)          Stu (ns)      vs Naive     vs Baseline
+------------------------------------------------------------------------------------------------
+Black-Scholes options: 81920
+Black-Scholes            [1;32mPASSED[0m           2409097            577660        4.170x          8.309x
+Sparse A (CSR): 2048 x 2048, nnz=24351
+Sparse SpMM              [1;32mPASSED[0m          54355522          51114458        1.063x          2.269x (SLOWER)
+ReLU: vector length=1024000
+ReLU                     [1;32mPASSED[0m            626756            152423        4.112x          3.608x
+Bitwise: vector length=1024000
+Bitwise                  [1;32mPASSED[0m            128539             81068        1.586x          3.084x (SLOWER)
+MatMul: n=512
+MatMul                   [1;31mFAILED[0m         147971393          36184106           N/A             N/A
+  Error: Results do not match naive implementation!
+Trace Replay: records=65536, trace_length=1048576
+Trace Replay             [1;32mPASSED[0m           4491091           1676181        2.679x          2.028x
+Graph: node_count=1024000, avg_degree=8
+Graph                    [1;32mPASSED[0m           5467962            894954        6.110x          5.587x
+GRFF: feature size=1024000
+GRFF                     [1;32mPASSED[0m           2959614           1381976        2.142x          6.151x (SLOWER)
+Image Proc: 1024 x 1000
+Image Proc               [1;32mPASSED[0m          34716458          13234312        2.623x          3.249x
+Filter Gradient: 1024 x 1024
+Filter Gradient          [1;32mPASSED[0m          14030702           5808816        2.415x          4.304x
+
+Geometric mean speedup: N/A

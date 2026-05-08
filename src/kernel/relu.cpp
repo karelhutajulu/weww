@@ -31,7 +31,7 @@ void naive_relu(std::span<float> data) {
 }
 
 void stu_relu(std::span<float> data) {
-    float* __restrict__ ptr = data.data();
+    float *__restrict__ ptr = data.data();
     const size_t n = data.size();
     for (size_t i = 0; i < n; ++i) {
         ptr[i] = std::max(0.0f, ptr[i]);

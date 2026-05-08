@@ -7,7 +7,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/Users/karelhutajulu/Developer/124040024_CodeOpt/CMakeLists.txt"
+  "/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/CMakeLists.txt"
   "CMakeFiles/4.3.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/4.3.2/CMakeSystem.cmake"
   "CMakeFiles/VerifyGlobs.cmake"

@@ -1,0 +1,7 @@
+	ReLU: vector length=1024000
+
+Running Benchmarks...
+--------------------------------------------------------
+Benchmark                Status          Nanoseconds
+--------------------------------------------------------
+ReLU (Naive)             [1;32mPASSED[0m         624139 ns (SLOW)

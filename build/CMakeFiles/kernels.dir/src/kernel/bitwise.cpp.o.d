@@ -1,7 +1,7 @@
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/bitwise.cpp \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/include/bitwise.h \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/include/bench.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/bitwise.cpp \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/bitwise.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include/bench.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \

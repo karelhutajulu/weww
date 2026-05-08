@@ -1,6 +1,4 @@
 #include "matmul.h"
-#include <thread>
-
 
 #include <algorithm>
 #include <cmath>
@@ -46,75 +44,57 @@ void naive_matmul(std::vector<float> &C, const std::vector<float> &A,
 
 void stu_matmul(std::vector<float> &C, const std::vector<float> &A,
                 const std::vector<float> &B, int n) {
-  const float *a = A.data();
-  const float *b = B.data();
-  float *c = C.data();
+    // TODO: Implement your version, and call it in stu_matmul_wrapper
+    const float *a = A.data();
+    const float *b = B.data();
+    float *c = C.data();
 
-  auto worker = [&](int start_row, int end_row) {
-      for (int i = start_row; i < end_row; ++i) {
+    for (int i = 0; i < n; ++i) {
         const float *a_row = a + static_cast<std::size_t>(i) * n;
         float *c_row = c + static_cast<std::size_t>(i) * n;
         int j = 0;
 
         for (; j + 7 < n; j += 8) {
-          float s0 = 0.0f;
-          float s1 = 0.0f;
-          float s2 = 0.0f;
-          float s3 = 0.0f;
-          float s4 = 0.0f;
-          float s5 = 0.0f;
-          float s6 = 0.0f;
-          float s7 = 0.0f;
+            float s0 = 0.0f;
+            float s1 = 0.0f;
+            float s2 = 0.0f;
+            float s3 = 0.0f;
+            float s4 = 0.0f;
+            float s5 = 0.0f;
+            float s6 = 0.0f;
+            float s7 = 0.0f;
 
-          for (int k = 0; k < n; ++k) {
-            const float av = a_row[k];
-            const float *b_row = b + static_cast<std::size_t>(k) * n + j;
-            s0 += av * b_row[0];
-            s1 += av * b_row[1];
-            s2 += av * b_row[2];
-            s3 += av * b_row[3];
-            s4 += av * b_row[4];
-            s5 += av * b_row[5];
-            s6 += av * b_row[6];
-            s7 += av * b_row[7];
-          }
+            for (int k = 0; k < n; ++k) {
+                const float av = a_row[k];
+                const float *b_row = b + static_cast<std::size_t>(k) * n + j;
+                s0 += av * b_row[0];
+                s1 += av * b_row[1];
+                s2 += av * b_row[2];
+                s3 += av * b_row[3];
+                s4 += av * b_row[4];
+                s5 += av * b_row[5];
+                s6 += av * b_row[6];
+                s7 += av * b_row[7];
+            }
 
-          c_row[j + 0] = s0;
-          c_row[j + 1] = s1;
-          c_row[j + 2] = s2;
-          c_row[j + 3] = s3;
-          c_row[j + 4] = s4;
-          c_row[j + 5] = s5;
-          c_row[j + 6] = s6;
-          c_row[j + 7] = s7;
+            c_row[j + 0] = s0;
+            c_row[j + 1] = s1;
+            c_row[j + 2] = s2;
+            c_row[j + 3] = s3;
+            c_row[j + 4] = s4;
+            c_row[j + 5] = s5;
+            c_row[j + 6] = s6;
+            c_row[j + 7] = s7;
         }
 
         for (; j < n; ++j) {
-          float sum = 0.0f;
-          for (int k = 0; k < n; ++k) {
-            sum += a_row[k] * b[static_cast<std::size_t>(k) * n + j];
-          }
-          c_row[j] = sum;
+            float sum = 0.0f;
+            for (int k = 0; k < n; ++k) {
+                sum += a_row[k] * b[static_cast<std::size_t>(k) * n + j];
+            }
+            c_row[j] = sum;
         }
-      }
-  };
-
-  const unsigned int num_threads = std::thread::hardware_concurrency();
-  const int t_count = (num_threads > 0) ? num_threads : 4;
-  std::vector<std::thread> threads;
-  
-  const int chunk = (n + t_count - 1) / t_count;
-  for (int t = 0; t < t_count; ++t) {
-      int start = t * chunk;
-      int end = std::min(start + chunk, n);
-      if (start < end) {
-          threads.emplace_back(worker, start, end);
-      }
-  }
-
-  for (auto& th : threads) {
-      th.join();
-  }
+    }
 }
 
 void naive_matmul_wrapper(void *ctx) {

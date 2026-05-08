@@ -1,7 +1,7 @@
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/src/kernel/relu.cpp \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/include/relu.h \
-  /Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/include/bench.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/bonus/src/kernel/relu.cpp \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/bonus/include/relu.h \
+  /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/bonus/include/bench.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/cmath \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__config_site \
@@ -931,4 +931,7 @@ CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/subtract_with_carry_engine.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/seed_seq.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/weibull_distribution.h
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/xmmintrin.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/mmintrin.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/17/include/mm_malloc.h

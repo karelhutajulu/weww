@@ -8,6 +8,7 @@
 #include <vector>
 
 inline constexpr std::chrono::nanoseconds BASELINE_FILTER_GRADIENT{25000000};
+inline constexpr double NAIVE_SPEEDUP_LOWER_BOUND_FILTER_GRADIENT{1.45};
 
 struct data_struct {
     std::vector<float> a;

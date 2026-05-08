@@ -6,6 +6,8 @@
 #include <stdexcept>
 #include <vector>
 
+#include <thread>
+
 void initialize_matmul(matmul_args &args, int n, uint32_t seed) {
     if (n <= 0) {
         throw std::invalid_argument("initialize_matmul: n must be positive.");
@@ -44,55 +46,25 @@ void naive_matmul(std::vector<float> &C, const std::vector<float> &A,
 
 void stu_matmul(std::vector<float> &C, const std::vector<float> &A,
                 const std::vector<float> &B, int n) {
-    // TODO: Implement your version, and call it in stu_matmul_wrapper
-    const float *a = A.data();
-    const float *b = B.data();
-    float *c = C.data();
 
-    for (int i = 0; i < n; ++i) {
-        const float *a_row = a + static_cast<std::size_t>(i) * n;
-        float *c_row = c + static_cast<std::size_t>(i) * n;
-        int j = 0;
+    std::fill(C.begin(), C.end(), 0.0f);
 
-        for (; j + 7 < n; j += 8) {
-            float s0 = 0.0f;
-            float s1 = 0.0f;
-            float s2 = 0.0f;
-            float s3 = 0.0f;
-            float s4 = 0.0f;
-            float s5 = 0.0f;
-            float s6 = 0.0f;
-            float s7 = 0.0f;
-
-            for (int k = 0; k < n; ++k) {
-                const float av = a_row[k];
-                const float *b_row = b + static_cast<std::size_t>(k) * n + j;
-                s0 += av * b_row[0];
-                s1 += av * b_row[1];
-                s2 += av * b_row[2];
-                s3 += av * b_row[3];
-                s4 += av * b_row[4];
-                s5 += av * b_row[5];
-                s6 += av * b_row[6];
-                s7 += av * b_row[7];
+    const int BLOCK_SIZE = 16;
+    for (int ii = 0; ii < n; ii += BLOCK_SIZE) {
+        for (int kk = 0; kk < n; kk += BLOCK_SIZE) {
+            for (int i = ii; i < std::min(ii + BLOCK_SIZE, n); i++) {
+                int row = i * n;
+                for (int k = kk; k < std::min(kk + BLOCK_SIZE, n); k++) {
+                    float a = A[row + k];
+                    int row2 = k * n;
+                    for (int jj = 0; jj < n; jj += BLOCK_SIZE) {
+                        for (int j = jj; j < std::min(jj + BLOCK_SIZE, n);
+                             j++) {
+                            C[row + j] += a * B[row2 + j];
+                        }
+                    }
+                }
             }
-
-            c_row[j + 0] = s0;
-            c_row[j + 1] = s1;
-            c_row[j + 2] = s2;
-            c_row[j + 3] = s3;
-            c_row[j + 4] = s4;
-            c_row[j + 5] = s5;
-            c_row[j + 6] = s6;
-            c_row[j + 7] = s7;
-        }
-
-        for (; j < n; ++j) {
-            float sum = 0.0f;
-            for (int k = 0; k < n; ++k) {
-                sum += a_row[k] * b[static_cast<std::size_t>(k) * n + j];
-            }
-            c_row[j] = sum;
         }
     }
 }

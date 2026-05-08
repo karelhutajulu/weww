@@ -63,22 +63,12 @@ int main() {
     const auto run_benchmark = [&](const bench_t &bench) {
         const auto naive_time = measure_average_time(
             bench.naiveFunc, bench.ref_args, bench.description + " naive");
-
-        std::cout << std::left << std::setw(25) << bench.description;
-
-        if (bench.tfunc == nullptr || bench.args == nullptr) {
-            std::cout << "\033[1;33mTODO\033[0m" << std::right
-                      << std::setw(18) << naive_time.count() << std::setw(18)
-                      << "N/A" << std::setw(14) << "N/A" << std::setw(16)
-                      << "N/A" << '\n';
-            return;
-        }
-
         const auto stu_time = measure_average_time(
             bench.tfunc, bench.args, bench.description + " stu");
         const bool correct =
             bench.checkFunc(bench.args, bench.ref_args, bench.naiveFunc);
 
+        std::cout << std::left << std::setw(25) << bench.description;
         if (!correct) {
             std::cout << "\033[1;31mFAILED\033[0m" << std::right
                       << std::setw(18) << naive_time.count() << std::setw(18)
@@ -113,310 +103,162 @@ int main() {
 #endif
     };
 
-    {
-        blackscholes_args black_args_ref;
-        initialize_blackscholes(black_args_ref, 81920, seed);
-        std::cout << "Black-Scholes options: "
-                  << black_args_ref.spot_price.size() << '\n';
+    blackscholes_args black_args_ref;
+    blackscholes_args black_args_stu;
+    initialize_blackscholes(black_args_ref, 81920, seed);
+    initialize_blackscholes(black_args_stu, 81920, seed);
+    std::cout << "Black-Scholes options: "
+              << black_args_ref.spot_price.size() << '\n';
+    run_benchmark({"Black-Scholes",
+                   stu_BlkSchls_wrapper,
+                   naive_BlkSchls_wrapper,
+                   BlkSchls_check,
+                   &black_args_stu,
+                   &black_args_ref,
+                   BASELINE_BLACKSCHOLES,
+                   NAIVE_SPEEDUP_LOWER_BOUND_BLACKSCHOLES});
 
-        // TODO: Uncomment this block when the student implementation exists.
-        // blackscholes_args black_args_stu;
-        // initialize_blackscholes(black_args_stu, 81920, seed);
-        // run_benchmark({"Black-Scholes",
-        //                stu_BlkSchls_wrapper,
-        //                naive_BlkSchls_wrapper,
-        //                BlkSchls_check,
-        //                &black_args_stu,
-        //                &black_args_ref,
-        //                BASELINE_BLACKSCHOLES,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_BLACKSCHOLES});
+    sparse_spmm_args sparse_args_ref;
+    sparse_spmm_args sparse_args_stu;
+    initialize_spmm(sparse_args_ref, 512, 512, -1, {}, seed);
+    initialize_spmm(sparse_args_stu, 512, 512, -1, {}, seed);
+    std::cout << "Sparse A (CSR): " << sparse_args_ref.csr.rows << " x "
+              << sparse_args_ref.csr.cols
+              << ", nnz=" << sparse_args_ref.csr.values.size() << '\n';
+    run_benchmark({"Sparse SpMM",
+                   stu_sparse_spmm_wrapper,
+                   naive_sparse_spmm_wrapper,
+                   sparse_spmm_check,
+                   &sparse_args_stu,
+                   &sparse_args_ref,
+                   BASELINE_SPARSE_SPMM,
+                   NAIVE_SPEEDUP_LOWER_BOUND_SPARSE_SPMM});
 
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"Black-Scholes",
-                       nullptr,
-                       naive_BlkSchls_wrapper,
-                       BlkSchls_check,
-                       nullptr,
-                       &black_args_ref,
-                       BASELINE_BLACKSCHOLES,
-                       NAIVE_SPEEDUP_LOWER_BOUND_BLACKSCHOLES});
-    }
+    constexpr size_t relu_size = 1024000;
+    relu_args relu_args_ref;
+    relu_args relu_args_stu;
+    initialize_relu(&relu_args_ref, relu_size, seed);
+    initialize_relu(&relu_args_stu, relu_size, seed);
+    std::println("ReLU: vector length={}", relu_size);
+    run_benchmark({"ReLU",
+                   stu_relu_wrapper,
+                   naive_relu_wrapper,
+                   relu_check,
+                   &relu_args_stu,
+                   &relu_args_ref,
+                   BASELINE_RELU,
+                   NAIVE_SPEEDUP_LOWER_BOUND_RELU});
 
-    {
-        sparse_spmm_args sparse_args_ref;
-        initialize_spmm(sparse_args_ref, 512, 512, -1, {}, seed);
-        std::cout << "Sparse A (CSR): " << sparse_args_ref.csr.rows << " x "
-                  << sparse_args_ref.csr.cols
-                  << ", nnz=" << sparse_args_ref.csr.values.size() << '\n';
+    constexpr size_t bitwise_size = 1024000;
+    bitwise_args bitwise_args_ref;
+    bitwise_args bitwise_args_stu;
+    initialize_bitwise(&bitwise_args_ref, bitwise_size, seed);
+    initialize_bitwise(&bitwise_args_stu, bitwise_size, seed);
+    std::println("Bitwise: vector length={}", bitwise_size);
+    run_benchmark({"Bitwise",
+                   stu_bitwise_wrapper,
+                   naive_bitwise_wrapper,
+                   bitwise_check,
+                   &bitwise_args_stu,
+                   &bitwise_args_ref,
+                   BASELINE_BITWISE,
+                   NAIVE_SPEEDUP_LOWER_BOUND_BITWISE});
 
-        // TODO: Uncomment this block when the student implementation exists.
-        // sparse_spmm_args sparse_args_stu;
-        // initialize_spmm(sparse_args_stu, 512, 512, -1, {}, seed);
-        // run_benchmark({"Sparse SpMM",
-        //                stu_sparse_spmm_wrapper,
-        //                naive_sparse_spmm_wrapper,
-        //                sparse_spmm_check,
-        //                &sparse_args_stu,
-        //                &sparse_args_ref,
-        //                BASELINE_SPARSE_SPMM,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_SPARSE_SPMM});
+    matmul_args matmul_args_ref;
+    matmul_args matmul_args_stu;
+    initialize_matmul(matmul_args_ref, 512, seed);
+    initialize_matmul(matmul_args_stu, 512, seed);
+    std::cout << "MatMul: n=" << matmul_args_ref.n << '\n';
+    run_benchmark({"MatMul",
+                   stu_matmul_wrapper,
+                   naive_matmul_wrapper,
+                   matmul_check,
+                   &matmul_args_stu,
+                   &matmul_args_ref,
+                   BASELINE_MATMUL,
+                   NAIVE_SPEEDUP_LOWER_BOUND_MATMUL});
 
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"Sparse SpMM",
-                       nullptr,
-                       naive_sparse_spmm_wrapper,
-                       sparse_spmm_check,
-                       nullptr,
-                       &sparse_args_ref,
-                       BASELINE_SPARSE_SPMM,
-                       NAIVE_SPEEDUP_LOWER_BOUND_SPARSE_SPMM});
-    }
+    trace_replay_args trace_args_ref;
+    trace_replay_args trace_args_stu;
+    initialize_trace_replay(trace_args_ref, 1 << 16, 1 << 20, seed);
+    initialize_trace_replay(trace_args_stu, 1 << 16, 1 << 20, seed);
+    std::cout << "Trace Replay: records=" << trace_args_ref.records.size()
+              << ", trace_length=" << trace_args_ref.trace.size() << '\n';
+    run_benchmark({"Trace Replay",
+                   stu_trace_replay_wrapper,
+                   naive_trace_replay_wrapper,
+                   trace_replay_check,
+                   &trace_args_stu,
+                   &trace_args_ref,
+                   BASELINE_TRACE_REPLAY,
+                   NAIVE_SPEEDUP_LOWER_BOUND_TRACE_REPLAY});
 
-    {
-        constexpr size_t relu_size = 1024000;
-        relu_args relu_args_ref;
-        initialize_relu(&relu_args_ref, relu_size, seed);
-        std::println("ReLU: vector length={}", relu_size);
+    constexpr std::size_t graph_node_count = 1024000;
+    constexpr int graph_avg_degree = 8;
+    graph_args graph_args_ref;
+    graph_args graph_args_stu;
+    initialize_graph(&graph_args_ref, graph_node_count, graph_avg_degree, seed);
+    initialize_graph(&graph_args_stu, graph_node_count, graph_avg_degree, seed);
+    std::cout << "Graph: node_count=" << graph_node_count
+              << ", avg_degree=" << graph_avg_degree << '\n';
+    run_benchmark({"Graph",
+                   stu_graph_wrapper,
+                   naive_graph_wrapper,
+                   graph_check,
+                   &graph_args_stu,
+                   &graph_args_ref,
+                   BASELINE_GRAPH,
+                   NAIVE_SPEEDUP_LOWER_BOUND_GRAPH});
 
-        // TODO: Uncomment this block when the student implementation exists.
-        // relu_args relu_args_stu;
-        // initialize_relu(&relu_args_stu, relu_size, seed);
-        // run_benchmark({"ReLU",
-        //                stu_relu_wrapper,
-        //                naive_relu_wrapper,
-        //                relu_check,
-        //                &relu_args_stu,
-        //                &relu_args_ref,
-        //                BASELINE_RELU,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_RELU});
+    constexpr std::size_t grff_size = 1024000;
+    grff_args grff_args_ref;
+    grff_args grff_args_stu;
+    initialize_grff(&grff_args_ref, grff_size, seed);
+    initialize_grff(&grff_args_stu, grff_size, seed);
+    std::cout << "GRFF: feature size=" << grff_args_ref.a_features.size()
+              << '\n';
+    run_benchmark({"GRFF",
+                   stu_grff_wrapper,
+                   naive_grff_wrapper,
+                   grff_check,
+                   &grff_args_stu,
+                   &grff_args_ref,
+                   BASELINE_GRFF,
+                   NAIVE_SPEEDUP_LOWER_BOUND_GRFF});
 
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"ReLU",
-                       nullptr,
-                       naive_relu_wrapper,
-                       relu_check,
-                       nullptr,
-                       &relu_args_ref,
-                       BASELINE_RELU,
-                       NAIVE_SPEEDUP_LOWER_BOUND_RELU});
-    }
+    constexpr std::size_t image_width = 1024;
+    constexpr std::size_t image_height = 1000;
+    image_proc_args image_args_ref;
+    image_proc_args image_args_stu;
+    initialize_image_proc(&image_args_ref, image_width, image_height, seed);
+    initialize_image_proc(&image_args_stu, image_width, image_height, seed);
+    std::cout << "Image Proc: " << image_args_ref.width << " x "
+              << image_args_ref.height << '\n';
+    run_benchmark({"Image Proc",
+                   stu_image_proc_wrapper,
+                   naive_image_proc_wrapper,
+                   image_proc_check,
+                   &image_args_stu,
+                   &image_args_ref,
+                   BASELINE_IMAGE_PROC,
+                   NAIVE_SPEEDUP_LOWER_BOUND_IMAGE_PROC});
 
-    {
-        constexpr size_t bitwise_size = 1024000;
-        bitwise_args bitwise_args_ref;
-        initialize_bitwise(&bitwise_args_ref, bitwise_size, seed);
-        std::println("Bitwise: vector length={}", bitwise_size);
-
-        // TODO: Uncomment this block when the student implementation exists.
-        // bitwise_args bitwise_args_stu;
-        // initialize_bitwise(&bitwise_args_stu, bitwise_size, seed);
-        // run_benchmark({"Bitwise",
-        //                stu_bitwise_wrapper,
-        //                naive_bitwise_wrapper,
-        //                bitwise_check,
-        //                &bitwise_args_stu,
-        //                &bitwise_args_ref,
-        //                BASELINE_BITWISE,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_BITWISE});
-
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"Bitwise",
-                       nullptr,
-                       naive_bitwise_wrapper,
-                       bitwise_check,
-                       nullptr,
-                       &bitwise_args_ref,
-                       BASELINE_BITWISE,
-                       NAIVE_SPEEDUP_LOWER_BOUND_BITWISE});
-    }
-
-    {
-        matmul_args matmul_args_ref;
-        initialize_matmul(matmul_args_ref, 512, seed);
-        std::cout << "MatMul: n=" << matmul_args_ref.n << '\n';
-
-        // TODO: Uncomment this block when the student implementation exists.
-        // matmul_args matmul_args_stu;
-        // initialize_matmul(matmul_args_stu, 512, seed);
-        // run_benchmark({"MatMul",
-        //                stu_matmul_wrapper,
-        //                naive_matmul_wrapper,
-        //                matmul_check,
-        //                &matmul_args_stu,
-        //                &matmul_args_ref,
-        //                BASELINE_MATMUL,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_MATMUL});
-
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"MatMul",
-                       nullptr,
-                       naive_matmul_wrapper,
-                       matmul_check,
-                       nullptr,
-                       &matmul_args_ref,
-                       BASELINE_MATMUL,
-                       NAIVE_SPEEDUP_LOWER_BOUND_MATMUL});
-    }
-
-    {
-        trace_replay_args trace_args_ref;
-        initialize_trace_replay(trace_args_ref, 1 << 16, 1 << 20, seed);
-        std::cout << "Trace Replay: records=" << trace_args_ref.records.size()
-                  << ", trace_length=" << trace_args_ref.trace.size() << '\n';
-
-        // TODO: Uncomment this block when the student implementation exists.
-        // trace_replay_args trace_args_stu;
-        // initialize_trace_replay(trace_args_stu, 1 << 16, 1 << 20, seed);
-        // run_benchmark({"Trace Replay",
-        //                stu_trace_replay_wrapper,
-        //                naive_trace_replay_wrapper,
-        //                trace_replay_check,
-        //                &trace_args_stu,
-        //                &trace_args_ref,
-        //                BASELINE_TRACE_REPLAY,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_TRACE_REPLAY});
-
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"Trace Replay",
-                       nullptr,
-                       naive_trace_replay_wrapper,
-                       trace_replay_check,
-                       nullptr,
-                       &trace_args_ref,
-                       BASELINE_TRACE_REPLAY,
-                       NAIVE_SPEEDUP_LOWER_BOUND_TRACE_REPLAY});
-    }
-
-    {
-        constexpr std::size_t graph_node_count = 1024000;
-        constexpr int graph_avg_degree = 8;
-        graph_args graph_args_ref;
-        initialize_graph(&graph_args_ref,
-                         graph_node_count,
-                         graph_avg_degree,
-                         seed);
-        std::cout << "Graph: node_count=" << graph_node_count
-                  << ", avg_degree=" << graph_avg_degree << '\n';
-
-        // TODO: Uncomment this block when the student implementation exists.
-        // graph_args graph_args_stu;
-        // initialize_graph(&graph_args_stu, graph_node_count, graph_avg_degree, seed);
-        // convert_graph_to_csr(graph_args_stu.graph_csr, graph_args_stu.graph);
-        // run_benchmark({"Graph",
-        //                stu_graph_wrapper,
-        //                naive_graph_wrapper,
-        //                graph_check,
-        //                &graph_args_stu,
-        //                &graph_args_ref,
-        //                BASELINE_GRAPH,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_GRAPH});
-
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"Graph",
-                       nullptr,
-                       naive_graph_wrapper,
-                       graph_check,
-                       nullptr,
-                       &graph_args_ref,
-                       BASELINE_GRAPH,
-                       NAIVE_SPEEDUP_LOWER_BOUND_GRAPH});
-    }
-
-    {
-        constexpr std::size_t grff_size = 1024000;
-        grff_args grff_args_ref;
-        initialize_grff(&grff_args_ref, grff_size, seed);
-        std::cout << "GRFF: feature size=" << grff_args_ref.a_features.size()
-                  << '\n';
-
-        // TODO: Uncomment this block when the student implementation exists.
-        // grff_args grff_args_stu;
-        // initialize_grff(&grff_args_stu, grff_size, seed);
-        // run_benchmark({"GRFF",
-        //                stu_grff_wrapper,
-        //                naive_grff_wrapper,
-        //                grff_check,
-        //                &grff_args_stu,
-        //                &grff_args_ref,
-        //                BASELINE_GRFF,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_GRFF});
-
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"GRFF",
-                       nullptr,
-                       naive_grff_wrapper,
-                       grff_check,
-                       nullptr,
-                       &grff_args_ref,
-                       BASELINE_GRFF,
-                       NAIVE_SPEEDUP_LOWER_BOUND_GRFF});
-    }
-
-    {
-        constexpr std::size_t image_width = 1024;
-        constexpr std::size_t image_height = 1000;
-        image_proc_args image_args_ref;
-        initialize_image_proc(&image_args_ref, image_width, image_height, seed);
-        std::cout << "Image Proc: " << image_args_ref.width << " x "
-                  << image_args_ref.height << '\n';
-
-        // TODO: Uncomment this block when the student implementation exists.
-        // image_proc_args image_args_stu;
-        // initialize_image_proc(&image_args_stu, image_width, image_height, seed);
-        // run_benchmark({"Image Proc",
-        //                stu_image_proc_wrapper,
-        //                naive_image_proc_wrapper,
-        //                image_proc_check,
-        //                &image_args_stu,
-        //                &image_args_ref,
-        //                BASELINE_IMAGE_PROC,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_IMAGE_PROC});
-
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"Image Proc",
-                       nullptr,
-                       naive_image_proc_wrapper,
-                       image_proc_check,
-                       nullptr,
-                       &image_args_ref,
-                       BASELINE_IMAGE_PROC,
-                       NAIVE_SPEEDUP_LOWER_BOUND_IMAGE_PROC});
-    }
-
-    {
-        const std::size_t width = 1024;
-        const std::size_t height = 1024;
-        filter_gradient_args filter_gradient_args_ref;
-        initialize_filter_gradient(&filter_gradient_args_ref,
-                                   width,
-                                   height,
-                                   seed);
-        std::cout << "Filter Gradient: " << height << " x " << width << '\n';
-
-        // TODO: Uncomment this block when the student implementation exists.
-        // filter_gradient_args filter_gradient_args_stu;
-        // initialize_filter_gradient(&filter_gradient_args_stu, width, height, seed);
-        // convert_soa_to_aos(filter_gradient_args_stu.aos_data,
-        //                    filter_gradient_args_stu.data);
-        // run_benchmark({"Filter Gradient",
-        //                stu_filter_gradient_wrapper,
-        //                naive_filter_gradient_wrapper,
-        //                filter_gradient_check,
-        //                &filter_gradient_args_stu,
-        //                &filter_gradient_args_ref,
-        //                BASELINE_FILTER_GRADIENT,
-        //                NAIVE_SPEEDUP_LOWER_BOUND_FILTER_GRADIENT});
-
-        // TODO: Comment this block when the student implementation exists:
-        run_benchmark({"Filter Gradient",
-                       nullptr,
-                       naive_filter_gradient_wrapper,
-                       filter_gradient_check,
-                       nullptr,
-                       &filter_gradient_args_ref,
-                       BASELINE_FILTER_GRADIENT,
-                       NAIVE_SPEEDUP_LOWER_BOUND_FILTER_GRADIENT});
-    }
+    const std::size_t width = 1024;
+    const std::size_t height = 1024;
+    filter_gradient_args filter_gradient_args_ref;
+    filter_gradient_args filter_gradient_args_stu;
+    initialize_filter_gradient(&filter_gradient_args_ref, width, height, seed);
+    initialize_filter_gradient(&filter_gradient_args_stu, width, height, seed);
+    convert_filter_gradient(&filter_gradient_args_stu);
+    std::cout << "Filter Gradient: " << height << " x " << width << '\n';
+    run_benchmark({"Filter Gradient",
+                   stu_filter_gradient_wrapper,
+                   naive_filter_gradient_wrapper,
+                   filter_gradient_check,
+                   &filter_gradient_args_stu,
+                   &filter_gradient_args_ref,
+                   BASELINE_FILTER_GRADIENT,
+                   NAIVE_SPEEDUP_LOWER_BOUND_FILTER_GRADIENT});
 
 #if GEOMETRIC_MEAN
     if (gm_enable && !gm_benchmarks.empty()) {

@@ -4,9 +4,9 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/karelhutajulu/Developer/124040024_CodeOpt/bonus/include
+CXX_INCLUDES = -I/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/bonus/include
 
-CXX_FLAGSarm64 = -std=c++23 -arch arm64 -O3 -ffast-math -Wall -Wextra -march=native -mtune=native -g -fno-omit-frame-pointer
+CXX_FLAGSarm64 = -std=c++23 -arch arm64 -O3 -ffast-math -Wall -Wextra -march=native -mtune=native -g -fno-omit-frame-pointer -pthread
 
-CXX_FLAGS = -std=c++23 -arch arm64 -O3 -ffast-math -Wall -Wextra -march=native -mtune=native -g -fno-omit-frame-pointer
+CXX_FLAGS = -std=c++23 -arch arm64 -O3 -ffast-math -Wall -Wextra -march=native -mtune=native -g -fno-omit-frame-pointer -pthread
 

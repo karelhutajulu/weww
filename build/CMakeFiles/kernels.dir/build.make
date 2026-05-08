@@ -53,10 +53,10 @@ RM = /opt/homebrew/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/karelhutajulu/Developer/124040024_CodeOpt
+CMAKE_SOURCE_DIR = /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/karelhutajulu/Developer/124040024_CodeOpt/build
+CMAKE_BINARY_DIR = /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/kernels.dir/depend.make
@@ -73,144 +73,144 @@ CMakeFiles/kernels.dir/codegen:
 .PHONY : CMakeFiles/kernels.dir/codegen
 
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/bitwise.cpp
+CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/bitwise.cpp
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/bitwise.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/bitwise.cpp
 
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/bitwise.cpp > CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/bitwise.cpp > CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/bitwise.cpp -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/bitwise.cpp -o CMakeFiles/kernels.dir/src/kernel/bitwise.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/blackscholes.cpp
+CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/blackscholes.cpp
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/blackscholes.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/blackscholes.cpp
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/blackscholes.cpp > CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/blackscholes.cpp > CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/blackscholes.cpp -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/blackscholes.cpp -o CMakeFiles/kernels.dir/src/kernel/blackscholes.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/filter_gradient.cpp
+CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/filter_gradient.cpp
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/filter_gradient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/filter_gradient.cpp
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/filter_gradient.cpp > CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/filter_gradient.cpp > CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/filter_gradient.cpp -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/filter_gradient.cpp -o CMakeFiles/kernels.dir/src/kernel/filter_gradient.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/graph.cpp
+CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/graph.cpp
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kernels.dir/src/kernel/graph.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/graph.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/graph.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/kernels.dir/src/kernel/graph.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/graph.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/graph.cpp
 
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/graph.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/graph.cpp > CMakeFiles/kernels.dir/src/kernel/graph.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/graph.cpp > CMakeFiles/kernels.dir/src/kernel/graph.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/graph.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/graph.cpp -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/graph.cpp -o CMakeFiles/kernels.dir/src/kernel/graph.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/grff.cpp
+CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/grff.cpp
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kernels.dir/src/kernel/grff.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/grff.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/kernels.dir/src/kernel/grff.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/grff.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/grff.cpp
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/grff.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/grff.cpp > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/grff.cpp > CMakeFiles/kernels.dir/src/kernel/grff.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/grff.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/grff.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/grff.cpp -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/grff.cpp -o CMakeFiles/kernels.dir/src/kernel/grff.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/image_proc.cpp
+CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/image_proc.cpp
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/image_proc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/image_proc.cpp
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/image_proc.cpp > CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/image_proc.cpp > CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/image_proc.cpp -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/image_proc.cpp -o CMakeFiles/kernels.dir/src/kernel/image_proc.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/matmul.cpp
+CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/matmul.cpp
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/matmul.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/matmul.cpp
 
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/matmul.cpp > CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/matmul.cpp > CMakeFiles/kernels.dir/src/kernel/matmul.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/matmul.cpp -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/matmul.cpp -o CMakeFiles/kernels.dir/src/kernel/matmul.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/relu.cpp
+CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/relu.cpp
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/kernels.dir/src/kernel/relu.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/relu.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/relu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/kernels.dir/src/kernel/relu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/relu.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/relu.cpp
 
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/relu.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/relu.cpp > CMakeFiles/kernels.dir/src/kernel/relu.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/relu.cpp > CMakeFiles/kernels.dir/src/kernel/relu.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/relu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/relu.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/relu.cpp -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/relu.cpp -o CMakeFiles/kernels.dir/src/kernel/relu.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/sparse_spmm.cpp
+CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/sparse_spmm.cpp
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/sparse_spmm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/sparse_spmm.cpp
 
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/sparse_spmm.cpp > CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/sparse_spmm.cpp > CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/sparse_spmm.cpp -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/sparse_spmm.cpp -o CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.s
 
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: CMakeFiles/kernels.dir/flags.make
-CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/trace_replay.cpp
+CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/trace_replay.cpp
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o: CMakeFiles/kernels.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -c /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/trace_replay.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -MF CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o.d -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o -c /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/trace_replay.cpp
 
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/trace_replay.cpp > CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/trace_replay.cpp > CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.i
 
 CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Developer/124040024_CodeOpt/src/kernel/trace_replay.cpp -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/src/kernel/trace_replay.cpp -o CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.s
 
 # Object files for target kernels
 kernels_OBJECTS = \
@@ -240,7 +240,7 @@ libkernels.a: CMakeFiles/kernels.dir/src/kernel/sparse_spmm.cpp.o
 libkernels.a: CMakeFiles/kernels.dir/src/kernel/trace_replay.cpp.o
 libkernels.a: CMakeFiles/kernels.dir/build.make
 libkernels.a: CMakeFiles/kernels.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libkernels.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libkernels.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/kernels.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kernels.dir/link.txt --verbose=$(VERBOSE)
 
@@ -253,6 +253,6 @@ CMakeFiles/kernels.dir/clean:
 .PHONY : CMakeFiles/kernels.dir/clean
 
 CMakeFiles/kernels.dir/depend:
-	cd /Users/karelhutajulu/Developer/124040024_CodeOpt/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/karelhutajulu/Developer/124040024_CodeOpt /Users/karelhutajulu/Developer/124040024_CodeOpt /Users/karelhutajulu/Developer/124040024_CodeOpt/build /Users/karelhutajulu/Developer/124040024_CodeOpt/build /Users/karelhutajulu/Developer/124040024_CodeOpt/build/CMakeFiles/kernels.dir/DependInfo.cmake "--color=$(COLOR)" kernels
+	cd /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build /Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/build/CMakeFiles/kernels.dir/DependInfo.cmake "--color=$(COLOR)" kernels
 .PHONY : CMakeFiles/kernels.dir/depend
 

@@ -204,10 +204,10 @@ void stu_image_proc(image_proc_args& args) {
             if (mask < 0.2f) mask += 0.22f;
             else mask *= 0.33f;
         }
-        float noise_arg1 = compress_val * 0.11f;
-        float noise_arg2 = rv * 0.22f;
-        float s1 = noise_arg1 * (1.0f - noise_arg1 * noise_arg1 * (1.0f / 6.0f));
-        float c2_sq = noise_arg2 * noise_arg2;
+        float na1 = compress_val * 0.11f;
+        float na2 = rv * 0.22f;
+        float s1 = na1 * (1.0f - na1 * na1 * (1.0f / 6.0f));
+        float c2_sq = na2 * na2;
         float c2 = 1.0f - 0.5f * c2_sq + c2_sq * c2_sq * (1.0f / 24.0f);
         float noise = s1 * c2;
         float final_val = mask * 0.7f + noise * 0.3f;
