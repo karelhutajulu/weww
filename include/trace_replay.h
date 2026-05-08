@@ -16,12 +16,12 @@ struct RequestRecord {
 };
 
 const std::chrono::nanoseconds BASELINE_TRACE_REPLAY{3400000};
-inline constexpr double NAIVE_SPEEDUP_LOWER_BOUND_TRACE_REPLAY{1.75};
 
 struct trace_replay_args {
     uint64_t out = 0;
     std::vector<RequestRecord> records;
     std::vector<uint32_t> trace;
+    std::vector<uint64_t> record_costs;
     // TODO: You may want to add new params at the end...
 };
 

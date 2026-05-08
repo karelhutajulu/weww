@@ -8,7 +8,6 @@
 #include <vector>
 
 const std::chrono::nanoseconds BASELINE_GRAPH{5000000};
-inline constexpr double NAIVE_SPEEDUP_LOWER_BOUND_GRAPH{2.50};
 
 struct Edge {
     int to;
@@ -28,6 +27,7 @@ struct graph_args {
     Graph graph;
     std::vector<Node> nodes;
     std::vector<Edge> edge_storage;
+    std::vector<int> edge_targets;
     std::uint64_t out;
     double epsilon;
     // TODO: You may want to add new params at the end...

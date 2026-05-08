@@ -8,7 +8,6 @@
 #include <vector>
 
 inline constexpr std::chrono::nanoseconds BASELINE_FILTER_GRADIENT{25000000};
-inline constexpr double NAIVE_SPEEDUP_LOWER_BOUND_FILTER_GRADIENT{1.45};
 
 struct data_struct {
     std::vector<float> a;
@@ -22,9 +21,16 @@ struct data_struct {
     std::vector<float> i;
 };
 
+struct my_data_struct {
+    std::vector<float> abc;
+    std::vector<float> def;
+    std::vector<float> ghi;
+};
+
 struct filter_gradient_args {
     data_struct data; 
     // TODO: You may want to add new params at the end...
+    my_data_struct my_data;
 
     std::size_t width;
     std::size_t height;
@@ -41,8 +47,9 @@ struct filter_gradient_args {
 
 void naive_filter_gradient(float& out, const data_struct& data,
                    std::size_t width, std::size_t height);
-void stu_filter_gradient(float& out, const data_struct& data,
+void stu_filter_gradient(float& out, const my_data_struct& data,
                    std::size_t width, std::size_t height);
+void convert_filter_gradient(filter_gradient_args* args);
 
 void naive_filter_gradient_wrapper(void* ctx);
 void stu_filter_gradient_wrapper(void* ctx);
