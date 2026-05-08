@@ -45,6 +45,8 @@ void naive_matmul(std::vector<float> &C, const std::vector<float> &A,
 void stu_matmul(std::vector<float> &C, const std::vector<float> &A,
                 const std::vector<float> &B, int n) {
     // TODO: Implement your version, and call it in stu_matmul_wrapper
+    std::fill(C.begin(), C.end(), 0.0f); // Ensure C is initialized to zero
+
     const float *a = A.data();
     const float *b = B.data();
     float *c = C.data();

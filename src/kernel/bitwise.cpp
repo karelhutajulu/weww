@@ -6,7 +6,7 @@
 #include <random>
 
 void initialize_bitwise(bitwise_args *args, const size_t size,
-                                  const std::uint_fast64_t seed) {
+                        const std::uint_fast64_t seed) {
     if (!args) {
         return;
     }
@@ -27,7 +27,6 @@ void initialize_bitwise(bitwise_args *args, const size_t size,
         args->result[i] = 0;
     }
 }
-
 
 // The reference implementation of bitwise
 // Student should not change this function
@@ -58,19 +57,45 @@ void naive_bitwise(std::span<std::int8_t> result,
 void stu_bitwise(std::span<std::int8_t> result, std::span<const std::int8_t> a,
                  std::span<const std::int8_t> b) {
     const std::size_t n = std::min({result.size(), a.size(), b.size()});
-    auto* __restrict__ dst = reinterpret_cast<std::uint8_t*>(result.data());
-    const auto* __restrict__ sa = reinterpret_cast<const std::uint8_t*>(a.data());
-    const auto* __restrict__ sb = reinterpret_cast<const std::uint8_t*>(b.data());
+    auto *__restrict__ dst = reinterpret_cast<std::uint8_t *>(result.data());
+    const auto *__restrict__ sa =
+        reinterpret_cast<const std::uint8_t *>(a.data());
+    const auto *__restrict__ sb =
+        reinterpret_cast<const std::uint8_t *>(b.data());
 
     using vec16 = std::uint8_t __attribute__((vector_size(16)));
-    const vec16 mask_a5 = {0xA5u, 0xA5u, 0xA5u, 0xA5u,
-                           0xA5u, 0xA5u, 0xA5u, 0xA5u,
-                           0xA5u, 0xA5u, 0xA5u, 0xA5u,
-                           0xA5u, 0xA5u, 0xA5u, 0xA5u};
-    const vec16 mask_99 = {0x99u, 0x99u, 0x99u, 0x99u,
-                           0x99u, 0x99u, 0x99u, 0x99u,
-                           0x99u, 0x99u, 0x99u, 0x99u,
-                           0x99u, 0x99u, 0x99u, 0x99u};
+    const vec16 mask_a5 = {0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u,
+                           0xA5u};
+    const vec16 mask_99 = {0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u,
+                           0x99u};
 
     std::size_t i = 0;
     for (; i + 63 < n; i += 64) {

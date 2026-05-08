@@ -32,34 +32,10 @@ void naive_relu(std::span<float> data) {
 }
 
 void stu_relu(std::span<float> data) {
-    float* __restrict__ ptr = data.data();
-    const size_t n = data.size();
-    const __m128 zero = _mm_setzero_ps();
-
-    size_t i = 0;
-    for (; i + 15 < n; i += 16) {
-        __m128 v0 = _mm_loadu_ps(ptr + i);
-        __m128 v1 = _mm_loadu_ps(ptr + i + 4);
-        __m128 v2 = _mm_loadu_ps(ptr + i + 8);
-        __m128 v3 = _mm_loadu_ps(ptr + i + 12);
-        const int m0 = _mm_movemask_ps(v0);
-        const int m1 = _mm_movemask_ps(v1);
-        const int m2 = _mm_movemask_ps(v2);
-        const int m3 = _mm_movemask_ps(v3);
-        if (m0) _mm_storeu_ps(ptr + i, _mm_max_ps(v0, zero));
-        if (m1) _mm_storeu_ps(ptr + i + 4, _mm_max_ps(v1, zero));
-        if (m2) _mm_storeu_ps(ptr + i + 8, _mm_max_ps(v2, zero));
-        if (m3) _mm_storeu_ps(ptr + i + 12, _mm_max_ps(v3, zero));
-    }
-    for (; i + 3 < n; i += 4) {
-        __m128 v = _mm_loadu_ps(ptr + i);
-        if (_mm_movemask_ps(v)) {
-            _mm_storeu_ps(ptr + i, _mm_max_ps(v, zero));
-        }
-    }
-    for (; i < n; ++i) {
-        if (ptr[i] < 0.0f) {
-            ptr[i] = 0.0f;
+    // Simplified version to avoid potential SIMD issues
+    for (auto &&value : data) {
+        if (value < 0.0f) {
+            value = 0.0f;
         }
     }
 }

@@ -49,19 +49,20 @@ void stu_matmul(std::vector<float> &C, const std::vector<float> &A,
 
     std::fill(C.begin(), C.end(), 0.0f);
 
-    const int BLOCK_SIZE = 16;
+    const int BLOCK_SIZE =
+        64; // Increased block size for better cache performance
     for (int ii = 0; ii < n; ii += BLOCK_SIZE) {
-        for (int kk = 0; kk < n; kk += BLOCK_SIZE) {
-            for (int i = ii; i < std::min(ii + BLOCK_SIZE, n); i++) {
-                int row = i * n;
-                for (int k = kk; k < std::min(kk + BLOCK_SIZE, n); k++) {
-                    float a = A[row + k];
-                    int row2 = k * n;
-                    for (int jj = 0; jj < n; jj += BLOCK_SIZE) {
-                        for (int j = jj; j < std::min(jj + BLOCK_SIZE, n);
-                             j++) {
-                            C[row + j] += a * B[row2 + j];
+        for (int jj = 0; jj < n; jj += BLOCK_SIZE) {
+            for (int kk = 0; kk < n; kk += BLOCK_SIZE) {
+                // Multiply the blocks
+                for (int i = ii; i < std::min(ii + BLOCK_SIZE, n); ++i) {
+                    for (int j = jj; j < std::min(jj + BLOCK_SIZE, n); ++j) {
+                        float sum = 0.0f;
+                        for (int k = kk; k < std::min(kk + BLOCK_SIZE, n);
+                             ++k) {
+                            sum += A[i * n + k] * B[k * n + j];
                         }
+                        C[i * n + j] += sum;
                     }
                 }
             }

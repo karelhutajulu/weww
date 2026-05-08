@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/Users/karelhutajulu/Downloads/CSC3060_Project5_Code_Optimization_modified/include
 
-CXX_FLAGSarm64 = -std=c++23 -arch arm64
+CXX_FLAGSarm64 = -O3 -DNDEBUG -std=c++23 -arch arm64
 
-CXX_FLAGS = -std=c++23 -arch arm64
+CXX_FLAGS = -O3 -DNDEBUG -std=c++23 -arch arm64
 
